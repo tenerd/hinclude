@@ -383,6 +383,9 @@ var hinclude;
         }
         if (req) {
           this.outstanding += 1;
+          if ("withCredentials" in req) {
+            req.withCredentials = true;
+          }
           req.onreadystatechange = function () {
             incl_cb(element, req);
           };
