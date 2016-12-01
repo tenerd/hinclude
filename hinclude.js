@@ -383,14 +383,14 @@ var hinclude;
         }
         if (req) {
           this.outstanding += 1;
-          if ("withCredentials" in req) {
-            req.withCredentials = true;
-          }
           req.onreadystatechange = function () {
             incl_cb(element, req);
           };
           try {
             req.open("GET", url, true);
+            if ("withCredentials" in req) {
+              req.withCredentials = true;
+            }
             req.send("");
           } catch (e3) {
             this.outstanding -= 1;
