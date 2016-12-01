@@ -102,7 +102,7 @@ var hinclude;
     hinclude_xml_parser_content: function (content) {
       var parsed_document = false;
       if (!hinclude.isEmpty(content)) {
-        if (window.ActiveXObject) {// for Internet Explorer
+        if ("ActiveXObject" in window) {// for Internet Explorer
           parsed_document = new ActiveXObject('Microsoft.XMLDOM');
           parsed_document.async = 'false';
           parsed_document.loadXML(content);
